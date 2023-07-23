@@ -6,7 +6,9 @@
 <body>
     <h1>Hello from Frontend!</h1>
     <button onclick="fetchData()">Fetch Data</button>
+    <button onclick="fetchAzubi()">Fetch Data</button>
     <p>Response from Backend: <span id="response"></span></p>
+    <p>Greetings: <span id="Greetings"></span></p>
 
     <script>
         function fetchData() {
@@ -18,6 +20,17 @@
                 .catch(error => {
                     console.error('Error fetching data:', error);
                     document.getElementById('response').textContent = 'Error fetching data.';
+                });
+        }
+        function fetchAzubi() {
+            fetch('http://localhost:8080/api/azubi')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('Greetings').textContent = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    document.getElementById('Greetings').textContent = 'Error fetching data.';
                 });
         }
     </script>

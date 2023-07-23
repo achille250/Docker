@@ -9,7 +9,9 @@ app.use(cors());
 app.get('/api/data', (req, res) => {
   res.send('Hello from Backend!');
 });
-
+app.get('/api/azubi', (req, res) => {
+  res.send('Hello from Azubi page');
+});
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
